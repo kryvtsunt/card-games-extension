@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="homework2b">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../Homework 2/homework2b" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../Homework 2/homework2b/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../../Homework 2/homework2b/src/test/java" />
+    </SOURCES>
+  </library>
+</component>
