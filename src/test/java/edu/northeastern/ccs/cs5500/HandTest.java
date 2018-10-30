@@ -49,7 +49,7 @@ public class HandTest {
 
         card1 = new StandardCard(StandardSuit.DIAMONDS, StandardRank.KING);
         card2 = new StandardCard(StandardSuit.DIAMONDS, StandardRank.TEN);
-        card3 = new StandardCard(StandardSuit.DIAMONDS, StandardRank.KING);
+        card3 = new StandardCard(StandardSuit.HEARTS, StandardRank.KING);
         card4 = new StandardCard(StandardSuit.SPADES, StandardRank.THREE);
         card5 = new StandardCard(StandardSuit.CLUBS, StandardRank.ACE);
 
@@ -71,7 +71,7 @@ public class HandTest {
      */
     @Test
     public void testIterator() {
-        newHand hand = new StandardNewHand();
+        NewHand hand = new StandardNewHand();
         hand.accept(card1);
         hand.accept(card2);
         assertTrue(hand.hasCard(card1));
@@ -79,6 +79,32 @@ public class HandTest {
         assertEquals(1, hand.occurrencesInHand(card1));
         assertEquals(1, hand.occurrencesInHand(StandardRank.KING));
         assertEquals(0, hand.occurrencesInHand(StandardRank.JACK));
+
+    }
+
+    @Test
+    public void testRemove() {
+        NewHand hand = new StandardNewHand();
+        hand.accept(card1);
+        hand.accept(card2);
+        hand.accept(card3);
+        hand.accept(card4);
+        hand.accept(card5);
+        assertEquals("[K♦, 10♦, K♥, 3♠, A♣]", hand.toString());
+        hand.getCard(card1.getRank());
+        assertEquals("[10♦, K♥, 3♠, A♣]", hand.toString());
+    }
+
+    @Test
+    public void test() {
+        RoundGame game = new GoFish();
+        game.deal();
+        while(!game.gameOver()){
+            game.playRound();
+        }
+        assertEquals("Deck:[]\n" +
+                "Player 1: []\n" +
+                "Player 2: []", game.toString());
 
     }
 }

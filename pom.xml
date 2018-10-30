@@ -35,7 +35,7 @@
         <dependency>
             <groupId>com.github.kryvtsunt</groupId>
             <artifactId>hw2</artifactId>
-            <version>c5a390b775</version>
+            <version>d3c8550</version>
         </dependency>
     </dependencies>
 

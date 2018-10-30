@@ -5,14 +5,16 @@ import edu.northeastern.ccs.cs5500.problem1.Hand;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class CardIterator implements Iterator<Card> {
 
-    private List<Card> cards;
+    public List<Card> cards;
     private int index;
 
     public CardIterator(Hand hand){
         this.cards = hand.showCards();
+        this.index = 0;
     }
 
     @Override
@@ -22,13 +24,17 @@ public class CardIterator implements Iterator<Card> {
 
     @Override
     public Card next() {
-        Card card = cards.get(index);
-        index++;
-        return card;
+        if (hasNext()) {
+            Card card = cards.get(index);
+            index++;
+            return card;
+        }
+        throw new NoSuchElementException();
     }
 
     @Override
     public void remove() {
-        cards.remove(index);
+        throw new UnsupportedOperationException();
     }
+
 }
